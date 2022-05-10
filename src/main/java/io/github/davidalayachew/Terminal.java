@@ -10,7 +10,7 @@ public final class Terminal extends InteractMode
    public void print(final String message)
    {
    
-      return;
+      System.out.println(message);
    
    }
    

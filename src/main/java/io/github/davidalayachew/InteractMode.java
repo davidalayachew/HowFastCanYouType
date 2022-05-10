@@ -74,7 +74,16 @@ public abstract sealed class InteractMode permits Terminal, GUI
       while (!valid)
       {
       
-         valid = integerPattern.matcher(this.prompt(message)).matches();
+         response = this.prompt(message);
+      
+         valid = integerPattern.matcher(response).matches();
+         
+         if (!valid)
+         {
+         
+            this.print(response + " is not a valid number.");
+         
+         }
       
       }
       
