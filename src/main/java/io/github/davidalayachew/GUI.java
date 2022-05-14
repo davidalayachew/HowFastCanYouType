@@ -1,5 +1,6 @@
 package io.github.davidalayachew;
 
+import javax.swing.JOptionPane;
 import java.util.Set;
 
 /** Class for the GUI implementation of InteractMode. */
@@ -10,7 +11,7 @@ public final class GUI extends InteractMode
    public void print(final String message)
    {
    
-      return;
+      JOptionPane.showMessageDialog(null, message);
    
    }
    

@@ -16,6 +16,15 @@ public class Main
    public static void main(String[] args)
    {
    
+      enum CMDOptions { GUI, CMD, ; }
+      
+      for (String each : args)
+      {
+      
+         System.out.println(each);
+      
+      }
+   
       switch(JOptionPane.showConfirmDialog(null, "Press YES for GUI Version, NO for Terminal Version."))
       {
          

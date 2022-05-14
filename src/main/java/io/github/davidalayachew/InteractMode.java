@@ -11,14 +11,14 @@ public abstract sealed class InteractMode permits Terminal, GUI
 {
 
    /** Pattern for checking if a String is an Integer. */
-   private static final Pattern integerPattern = Pattern.compile("^\\d{1,6}$");
+   private static final Pattern INTEGER_PATTERN = Pattern.compile("^\\d{1,6}$");
 
    /** Set of words that the user will be typing this round. */
    private final List<String> words;
    
    /** Set of game options that will be active this round. */
    private final Set<GameOption> options;
-   
+
    /** Constructor. */
    public InteractMode()
    {
@@ -37,7 +37,7 @@ public abstract sealed class InteractMode permits Terminal, GUI
       this.print("Hello world!");
    
    }
-   
+
    /**
     * 
     * Method that prints the given message.
@@ -76,7 +76,7 @@ public abstract sealed class InteractMode permits Terminal, GUI
       
          response = this.prompt(message);
       
-         valid = integerPattern.matcher(response).matches();
+         valid = INTEGER_PATTERN.matcher(response).matches();
          
          if (!valid)
          {
