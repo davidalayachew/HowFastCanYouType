@@ -7,9 +7,6 @@ import java.util.Set;
 public final class Terminal extends InteractMode
 {
 
-   /** Scanner that will take in user input from the command line. Is there no better option than this? */
-   private final Scanner scanner = new Scanner(System.in);
-
    @Override
    public void print(final String message)
    {
@@ -22,7 +19,9 @@ public final class Terminal extends InteractMode
    public String prompt(final String message)
    {
    
-      return null;  
+      print(message);
+   
+      return new Scanner(System.in).nextLine();
    
    }
    

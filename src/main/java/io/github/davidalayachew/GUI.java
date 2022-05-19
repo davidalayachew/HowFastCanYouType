@@ -19,7 +19,7 @@ public final class GUI extends InteractMode
    public String prompt(final String message)
    {
    
-      return null;
+      return JOptionPane.showInputDialog(message);
    
    }
    

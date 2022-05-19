@@ -23,7 +23,7 @@ public abstract sealed class InteractMode permits Terminal, GUI
    public InteractMode()
    {
    
-      System.out.println(this.prompt("How many words?"));
+      System.out.println(this.prompt("Type in something"));
       
       words = null;
       options = null;
@@ -35,6 +35,10 @@ public abstract sealed class InteractMode permits Terminal, GUI
    {
    
       this.print("Hello world!");
+      
+      int num = this.promptForInt("Enter a number");
+      
+      this.print("You entered " + num);
    
    }
 
