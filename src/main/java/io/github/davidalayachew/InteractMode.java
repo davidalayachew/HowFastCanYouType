@@ -34,10 +34,10 @@ public abstract sealed class InteractMode permits Terminal, GUI
    public void play()
    {
    
-      this.print("Hello world!");
+      this.print("Let's see how fast you can type.");
       
-      int num = this.promptForInt("Enter a number");
-      
+      final int num = this.promptForInt("Please enter how many words you would like to type");
+   
       this.print("You entered " + num);
    
    }
@@ -79,6 +79,13 @@ public abstract sealed class InteractMode permits Terminal, GUI
       {
       
          response = this.prompt(message);
+         
+         if (response == null)
+         {
+         
+            continue;
+         
+         }
       
          valid = INTEGER_PATTERN.matcher(response).matches();
          
