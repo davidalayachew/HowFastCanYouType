@@ -23,22 +23,16 @@ public abstract sealed class InteractMode permits Terminal, GUI
    public InteractMode()
    {
    
-      System.out.println(this.prompt("Type in something"));
-      
-      words = null;
+      words = Word.asStringList(this.promptForInt("Please enter how many words you would like to type"));
       options = null;
+      
+      System.out.println(words);
    
    }
 
    /** Method to handle playing the game loop. */
    public void play()
    {
-   
-      this.print("Let's see how fast you can type.");
-      
-      final int num = this.promptForInt("Please enter how many words you would like to type");
-   
-      this.print("You entered " + num);
    
    }
 
