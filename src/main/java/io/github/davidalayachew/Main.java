@@ -30,6 +30,7 @@ public class Main
          
          case JOptionPane.YES_OPTION   -> new GUI().play();
          case JOptionPane.NO_OPTION    -> new Terminal().play();
+         default                       -> JOptionPane.showMessageDialog(null, "Ending the program.");
          
       }
    

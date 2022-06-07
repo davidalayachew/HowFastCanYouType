@@ -15,7 +15,7 @@ public abstract sealed class InteractMode permits Terminal, GUI
 
    /** Set of words that the user will be typing this round. */
    private final List<String> words;
-   
+
    /** Set of game options that will be active this round. */
    private final Set<GameOption> options;
 
@@ -24,15 +24,18 @@ public abstract sealed class InteractMode permits Terminal, GUI
    {
    
       words = Word.asStringList(this.promptForInt("Please enter how many words you would like to type"));
-      options = null;
+      options = Set.of(this.pickOne("Please select one of the following Game Options.", GameOption.asSet()));
       
       System.out.println(words);
+      System.out.println(options);
    
    }
 
    /** Method to handle playing the game loop. */
    public void play()
    {
+   
+   
    
    }
 
@@ -73,16 +76,17 @@ public abstract sealed class InteractMode permits Terminal, GUI
       {
       
          response = this.prompt(message);
-         
+      
          if (response == null)
          {
          
-            continue;
+            //continue;
+            throw new IllegalArgumentException("User decided to quit!");
          
          }
       
          valid = INTEGER_PATTERN.matcher(response).matches();
-         
+      
          if (!valid)
          {
          
@@ -91,7 +95,7 @@ public abstract sealed class InteractMode permits Terminal, GUI
          }
       
       }
-      
+   
       return Integer.parseInt(response);
    
    }
