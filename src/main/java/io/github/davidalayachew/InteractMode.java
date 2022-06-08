@@ -12,6 +12,12 @@ public abstract sealed class InteractMode permits Terminal, GUI
 
    /** Pattern for checking if a String is an Integer. */
    private static final Pattern INTEGER_PATTERN = Pattern.compile("^\\d{1,6}$");
+   
+   /** Default min int value. */
+   private static final int MIN = 0;
+   
+   /** Default max int value. */
+   private static final int MAX = 999_999;
 
    /** Set of words that the user will be typing this round. */
    private final List<String> words;
@@ -96,7 +102,7 @@ public abstract sealed class InteractMode permits Terminal, GUI
       
       }
    
-      return Integer.parseInt(response);
+      return ;
    
    }
 

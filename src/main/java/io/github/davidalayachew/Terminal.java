@@ -29,6 +29,19 @@ public final class Terminal extends InteractMode
    public <T> T pickOne(final String message, final Set<T> options)
    {
    
+      this.print("Please select from one of the following options.");
+      
+      final List<T> list = List.copyOf(options);
+   
+      for (int i = 1; i <= options.size(); i++)
+      {
+      
+         this.print(i + ")\t" + each.get(i));
+      
+      }
+      
+      final int response = this.promptForInt(message);
+   
       return null;
    
    }
