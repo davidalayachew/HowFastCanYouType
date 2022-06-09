@@ -94,6 +94,7 @@ public abstract sealed class InteractMode permits Terminal, GUI
          if (!isValidNumber(response))
          {
          
+            this.print(response + " is not a valid number.");
             continue;
          
          }
@@ -106,6 +107,14 @@ public abstract sealed class InteractMode permits Terminal, GUI
          }
       
       }
+   
+   }
+
+   public <T> int promptForIndex(final String message, final Collection<T> collection)
+   {
+   
+      final int min = 1;
+      final int max = collection.size();
    
    }
 
@@ -132,5 +141,19 @@ public abstract sealed class InteractMode permits Terminal, GUI
     * 
     */
    public abstract <T> Set<T> pickMultiple(final String message, final Set<T> options);
+
+   public boolean isValidNumber(final String potential)
+   {
+   
+      if (response == null)
+      {
+      
+         throw new IllegalArgumentException("User decided to quit!");
+         
+      }
+      
+      return INTEGER_PATTERN.matcher(response).matches();
+       
+   }
 
 }
