@@ -1,5 +1,6 @@
 package io.github.davidalayachew;
 
+import java.util.List;;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -36,11 +37,11 @@ public final class Terminal extends InteractMode
       for (int i = 1; i <= options.size(); i++)
       {
       
-         this.print(i + ")\t" + each.get(i));
+         this.print(i + ")\t" + list.get(i));
       
       }
       
-      final int response = this.promptForInt(message);
+      final int response = this.promptForIntWithBounds(message, list);
    
       return null;
    

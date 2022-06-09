@@ -5,6 +5,7 @@ import io.github.davidalayachew.data.GameOption;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 /** Enum to represent the different ways for the player to interact with the application. */
 public abstract sealed class InteractMode permits Terminal, GUI
@@ -29,8 +30,18 @@ public abstract sealed class InteractMode permits Terminal, GUI
    public InteractMode()
    {
    
-      words = Word.asStringList(this.promptForInt("Please enter how many words you would like to type"));
-      options = Set.of(this.pickOne("Please select one of the following Game Options.", GameOption.asSet()));
+      words =
+         EnumMethods.asStringList
+         (
+            this.pickOne
+            (
+               "Please enter how many words you would like to type",
+               Set.copyOf(IntStream.rangeClosed(1, Word.values().length).boxed().toList())
+            ),
+            Word.class
+         );
+         
+      options = Set.of(this.pickOne("Please select one of the following Game Options.", Set.of(GameOption.values())));
       
       System.out.println(words);
       System.out.println(options);
@@ -75,34 +86,26 @@ public abstract sealed class InteractMode permits Terminal, GUI
    public int promptForInt(final String message)
    {
    
-      boolean valid = false;
-      String response = "";
-   
-      while (!valid)
+      while (true)
       {
       
-         response = this.prompt(message);
-      
-         if (response == null)
+         final String response = this.prompt(message);
+         
+         if (!isValidNumber(response))
          {
          
-            //continue;
-            throw new IllegalArgumentException("User decided to quit!");
+            continue;
          
          }
-      
-         valid = INTEGER_PATTERN.matcher(response).matches();
-      
-         if (!valid)
+         
+         else
          {
          
-            this.print(response + " is not a valid number.");
+            return Integer.parseInt(response);
          
          }
       
       }
-   
-      return ;
    
    }
 
