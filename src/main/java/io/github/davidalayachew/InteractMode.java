@@ -2,6 +2,7 @@ package io.github.davidalayachew;
 
 import io.github.davidalayachew.data.Word;
 import io.github.davidalayachew.data.GameOption;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
