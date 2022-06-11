@@ -14,10 +14,10 @@ public abstract sealed class InteractMode permits Terminal, GUI
 
    /** Pattern for checking if a String is an Integer. */
    private static final Pattern INTEGER_PATTERN = Pattern.compile("^\\d{1,6}$");
-   
+
    /** Default min int value. */
    private static final int MIN = 0;
-   
+
    /** Default max int value. */
    private static final int MAX = 999_999;
 
@@ -34,18 +34,27 @@ public abstract sealed class InteractMode permits Terminal, GUI
       words =
          EnumMethods.asStringList
          (
-            this.pickOne
+            this.promptForIntWithinBounds
             (
                "Please enter how many words you would like to type",
-               Set.copyOf(IntStream.rangeClosed(1, Word.values().length).boxed().toList())
+               1,
+               10
             ),
             Word.class
          );
-         
+   
       options = Set.of(this.pickOne("Please select one of the following Game Options.", Set.of(GameOption.values())));
-      
+   
       System.out.println(words);
       System.out.println(options);
+   
+   }
+   
+   /** To facilitate development and prevent glossing over incomplete work, I create this method with just throws an exception. */
+   public void unfinished()
+   {
+   
+      throw new UnsupportedOperationException();
    
    }
 
@@ -58,31 +67,65 @@ public abstract sealed class InteractMode permits Terminal, GUI
    }
 
    /**
-    * 
+    *
     * Method that prints the given message.
-    * 
+    *
     * @param   message     Message to be printed to the user.
+    *
+    */
+   public abstract void printSingle(final String message);
+
+   /**
+    *
+    * Method that prints the given messages.
+    *
+    * @param   messages    Messages to be printed to the user.
+    *
+    */
+   public void printMultiple(final String... messages)
+   {
+   
+      this.printMultiple(List.of(messages));
+   
+   }
+   
+   /**
+    * 
+    * Method that prints the given collection in a user-friendly way.
+    * 
+    * @param   collection  The collection to be printed.
+    * @param   <T>         The type parameter of the collection to be printed.
     * 
     */
-   public abstract void print(final String message);
+   public abstract <T> void printMultiple(final Collection<T> collection);
 
    /**
     * 
-    * Method that asks the user the given message, then returns the String response.
+    * Method that prints the given list in a user-friendly way, with each entry given a unique number.
     * 
+    * @param   list        The list to be printed.
+    * @param   <T>         The type parameter of the list to be printed.
+    * 
+    */
+   public abstract <T> void printMultipleNumbered(final List<T> list);
+
+   /**
+    *
+    * Method that asks the user the given message, then returns the String response.
+    *
     * @param   message     Message to be printed to the user.
     * @return              The String response from the user.
-    * 
+    *
     */
    public abstract String prompt(final String message);
 
    /**
-    * 
+    *
     * Method that asks the user for an integer (using the given message), then returns the integer response.
-    * 
+    *
     * @param   message     Message to be printed to the user.
     * @return              The integer response from the user.
-    * 
+    *
     */
    public int promptForInt(final String message)
    {
@@ -91,11 +134,11 @@ public abstract sealed class InteractMode permits Terminal, GUI
       {
       
          final String response = this.prompt(message);
-         
+      
          if (!isValidNumber(response))
          {
          
-            this.print(response + " is not a valid number.");
+            this.printSingle(response + " is not a valid number.");
             continue;
          
          }
@@ -111,50 +154,114 @@ public abstract sealed class InteractMode permits Terminal, GUI
    
    }
 
-   public <T> int promptForIndex(final String message, final Collection<T> collection)
+   /**
+    *
+    * Method that asks the user for an integer (using the given message), then returns the integer response.
+    *
+    * @param   message     Message to be printed to the user.
+    * @param   min         The minimum value the result is permitted to be.
+    * @param   max         The maximum value the result is permitted to be.
+    * @return              The integer response from the user.
+    *
+    */
+   public int promptForIntWithinBounds(final String message, final int min, final int max)
    {
    
-      final int min = 1;
-      final int max = collection.size();
+      while (true)
+      {
+      
+         final String response = this.prompt(message + " [" + min + ", " + max + "]");
+      
+         if (!isValidNumber(response))
+         {
+         
+            this.printSingle(response + " is not a valid number.");
+            continue;
+         
+         }
+      
+         final int result = Integer.parseInt(response);
+      
+         if (result < min || result > max)
+         {
+         
+            this.printSingle(result + " is not permitted. Your number must be between " + min + " and " + max + " (inclusive)");
+         
+         }
+         
+         else
+         {
+         
+            return result;
+         
+         }
+      
+      }
    
    }
 
    /**
-    * 
+    *
+    * Method that asks the user for an index of the given list of options (using the given message),
+    * then returns the integer response.
+    *
+    * @param   message     Message to be printed to the user.
+    * @param   list        The list of possible options.
+    * @param   <T>         The type parameter of the list.
+    * @return              An index of an item found within the list.
+    *
+    */
+   public <T> int promptForIndex(final String message, final List<T> list)
+   {
+   
+      return this.promptForIntWithinBounds(message, 0, list.size() - 1);
+   
+   }
+
+   /**
+    *
     * Method that asks the user (using the given message) to pick ONE option from the given options.
-    * 
+    *
     * @param   message     Message to be printed to the user.
     * @param   options     Options for the user to choose from.
     * @param   <T>         The type parameter.
     * @return              The single option that the user chose.
-    * 
+    *
     */
    public abstract <T> T pickOne(final String message, final Set<T> options);
 
    /**
-    * 
+    *
     * Method that asks the user (using the given message) to pick MULTIPLE options from the given options.
-    * 
+    *
     * @param   message     Message to be printed to the user.
     * @param   options     Options for the user to choose from.
     * @param   <T>         The type parameter.
     * @return              The multiple options that the user chose.
-    * 
+    *
     */
    public abstract <T> Set<T> pickMultiple(final String message, final Set<T> options);
 
+   /**
+    *
+    * Returns true if the given String can be safely converted into a valid number.
+    *
+    * @param   potential   The String that may also be a valid input for converting into a number.
+    * @return              Return true if it can be safely converted. Otherwise, return false.
+    *
+    */
    public boolean isValidNumber(final String potential)
    {
    
-      if (response == null)
+      if (potential == null)
       {
       
-         throw new IllegalArgumentException("User decided to quit!");
-         
-      }
+         throw new IllegalArgumentException("No response was given");
       
-      return INTEGER_PATTERN.matcher(response).matches();
-       
+      }
+   
+      return INTEGER_PATTERN.matcher(potential).matches();
+   
    }
 
 }

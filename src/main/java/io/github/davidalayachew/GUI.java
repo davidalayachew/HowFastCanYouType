@@ -2,6 +2,8 @@ package io.github.davidalayachew;
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 /** Class for the GUI implementation of InteractMode. */
@@ -9,13 +11,29 @@ public final class GUI extends InteractMode
 {
 
    @Override
-   public void print(final String message)
+   public void printSingle(final String message)
    {
    
       JOptionPane.showMessageDialog(null, message);
    
    }
 
+   @Override
+   public <T> void printMultiple(final Collection<T> messages)
+   {
+   
+      unfinished();
+   
+   }
+   
+   @Override
+   public <T> void printMultipleNumbered(final List<T> list)
+   {
+   
+      unfinished();
+   
+   }
+   
    @Override
    public String prompt(final String message)
    {
