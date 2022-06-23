@@ -37,7 +37,7 @@ public final class Terminal extends InteractMode
       for (int i = 0; i < list.size(); i++)
       {
       
-         this.printSingle(i + "\t -" + list.get(i));
+         this.printSingle(i + "\t - " + list.get(i));
       
       }
    
@@ -61,7 +61,7 @@ public final class Terminal extends InteractMode
    
       this.printSingle("Please select from one of the following options.");
    
-      this.printMultiple(list);
+      this.printMultipleNumbered(list);
       
       final int response = this.promptForIndex(message, list);
    

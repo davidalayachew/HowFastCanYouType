@@ -16,10 +16,10 @@ public abstract sealed class InteractMode permits Terminal, GUI
    private static final Pattern INTEGER_PATTERN = Pattern.compile("^\\d{1,6}$");
 
    /** Default min int value. */
-   private static final int MIN = 0;
+   public static final int MIN = 0;
 
    /** Default max int value. */
-   private static final int MAX = 999_999;
+   public static final int MAX = 999_999;
 
    /** Set of words that the user will be typing this round. */
    private final List<String> words;
