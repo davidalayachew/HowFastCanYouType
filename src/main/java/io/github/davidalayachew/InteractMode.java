@@ -101,13 +101,14 @@ public abstract sealed class InteractMode permits Terminal, GUI
 
    /**
     * 
-    * Method that prints the given list in a user-friendly way, with each entry given a unique number.
+    * Method that returns the given list as a user-friendly string, with each entry given a unique number.
     * 
     * @param   list        The list to be printed.
     * @param   <T>         The type parameter of the list to be printed.
+    * @return              The list as a user friendly string.
     * 
     */
-   public abstract <T> void printMultipleNumbered(final List<T> list);
+   public abstract <T> String stringMultipleNumbered(final List<T> list);
 
    /**
     *

@@ -34,15 +34,19 @@ public final class Terminal extends InteractMode
    }
    
    @Override
-   public <T> void printMultipleNumbered(final List<T> list)
+   public <T> String stringMultipleNumbered(final List<T> list)
    {
+   
+      String response = "";
    
       for (int i = 0; i < list.size(); i++)
       {
       
-         this.printSingle(i + "\t - " + list.get(i));
+         response += i + "\t - " + list.get(i) + "\n";
       
       }
+      
+      return response;
    
    }
    
@@ -64,7 +68,7 @@ public final class Terminal extends InteractMode
    
       this.printSingle("Please select from one of the following options.");
    
-      this.printMultipleNumbered(list);
+      this.printSingle(this.stringMultipleNumbered(list));
       
       final int response = this.promptForIndex(message, list);
    

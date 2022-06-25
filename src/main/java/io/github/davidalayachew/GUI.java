@@ -27,10 +27,10 @@ public final class GUI extends InteractMode
    }
    
    @Override
-   public <T> void printMultipleNumbered(final List<T> list)
+   public <T> String stringMultipleNumbered(final List<T> list)
    {
    
-      unfinished();
+      throw new UnsupportedOperationException();
    
    }
    
