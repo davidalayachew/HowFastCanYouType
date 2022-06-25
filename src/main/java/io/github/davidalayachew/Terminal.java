@@ -9,6 +9,9 @@ import java.util.Set;
 public final class Terminal extends InteractMode
 {
 
+   //I feel like this entire process should be overhauled.
+   //Instead of doing the action of printing, we should have methods that handle printing, and others that handle string formation.
+
    @Override
    public void printSingle(final String message)
    {
