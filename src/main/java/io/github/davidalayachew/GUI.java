@@ -19,10 +19,10 @@ public final class GUI extends InteractMode
    }
 
    @Override
-   public <T> void printMultiple(final Collection<T> messages)
+   public <T> String stringMultiple(final Collection<T> messages)
    {
    
-      unfinished();
+      throw new UnsupportedOperationException();
    
    }
    

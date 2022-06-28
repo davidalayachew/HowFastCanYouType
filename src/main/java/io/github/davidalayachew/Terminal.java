@@ -21,15 +21,19 @@ public final class Terminal extends InteractMode
    }
    
    @Override
-   public <T> void printMultiple(final Collection<T> messages)
+   public <T> String stringMultiple(final Collection<T> messages)
    {
+   
+      String response = "";
    
       for (T each : messages)
       {
       
-         this.printSingle(each.toString());
+         response += each.toString();
       
       }
+      
+      return response;
    
    }
    

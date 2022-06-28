@@ -77,27 +77,29 @@ public abstract sealed class InteractMode permits Terminal, GUI
 
    /**
     *
-    * Method that prints the given messages.
+    * Method that returns the given messages as a user-friendly String.
     *
-    * @param   messages    Messages to be printed to the user.
+    * @param   messages    Messages to be formatted into user-friendly Strings.
+    * @return              The user-friendly String.
     *
     */
-   public void printMultiple(final String... messages)
+   public String stringMultiple(final String... messages)
    {
    
-      this.printMultiple(List.of(messages));
+      return this.stringMultiple(List.of(messages));
    
    }
    
    /**
     * 
-    * Method that prints the given collection in a user-friendly way.
+    * Method that returns the given collection in a user-friendly String.
     * 
     * @param   collection  The collection to be printed.
     * @param   <T>         The type parameter of the collection to be printed.
+    * @return              The user-friendly String.
     * 
     */
-   public abstract <T> void printMultiple(final Collection<T> collection);
+   public abstract <T> String stringMultiple(final Collection<T> collection);
 
    /**
     * 
