@@ -29,7 +29,7 @@ public final class Terminal extends InteractMode
       for (T each : messages)
       {
       
-         response += each.toString();
+         response += each.toString() + "\n";
       
       }
       
