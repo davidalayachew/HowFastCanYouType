@@ -14,7 +14,7 @@ public final class GUI extends InteractMode
    public void printSingle(final String message)
    {
    
-      JOptionPane.showMessageDialog(null, message);
+      JOptionPane.showMessageDialog(null, "<html>" + message + "</html>");
    
    }
 
@@ -22,7 +22,16 @@ public final class GUI extends InteractMode
    public <T> String stringMultiple(final Collection<T> messages)
    {
    
-      throw new UnsupportedOperationException();
+      String response = "";
+   
+      for (T each : messages)
+      {
+      
+         response += each.toString() + "<br>";
+      
+      }
+      
+      return response;
    
    }
    
@@ -30,7 +39,16 @@ public final class GUI extends InteractMode
    public <T> String stringMultipleNumbered(final List<T> list)
    {
    
-      throw new UnsupportedOperationException();
+      String response = "";
+   
+      for (int i = 0; i < list.size(); i++)
+      {
+      
+         response += i + "\t - " + list.get(i) + "<br>";
+      
+      }
+      
+      return response;
    
    }
    
@@ -73,7 +91,7 @@ public final class GUI extends InteractMode
    public <T> Set<T> pickMultiple(final String message, final Set<T> options)
    {
    
-      return null;
+      throw new UnsupportedOperationException();
    
    }
 

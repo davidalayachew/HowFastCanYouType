@@ -49,14 +49,6 @@ public abstract sealed class InteractMode permits Terminal, GUI
       System.out.println(options);
    
    }
-   
-   /** To facilitate development and prevent glossing over incomplete work, I create this method with just throws an exception. */
-   public void unfinished()
-   {
-   
-      throw new UnsupportedOperationException();
-   
-   }
 
    /** Method to handle playing the game loop. */
    public void play()
@@ -169,6 +161,12 @@ public abstract sealed class InteractMode permits Terminal, GUI
     */
    public int promptForIntWithinBounds(final String message, final int min, final int max)
    {
+   
+   //we need some way to be able to know that an option was not selected.
+   //I don't want to have 2 different methods - one that allows failure, and one that doesn't
+   //on the other hand, I feel that only having the failure method will poison the stream.
+   //I think that only having the failure method is the only real option, but it will
+   //poison things as we go forward.
    
       while (true)
       {

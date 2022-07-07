@@ -84,7 +84,23 @@ public final class Terminal extends InteractMode
    public <T> Set<T> pickMultiple(final String message, final Set<T> options)
    {
    
-      return null;
+      final List<T> list = list.copyOf(options);
+   
+   //now, remove one, then perform on the new list
+   
+   
+   
+      // final List<T> list = List.copyOf(options);
+   // 
+      // this.printSingle("Please select all options that apply.");
+   // 
+      // this.printSingle(this.stringMultipleNumbered(list));
+   //    
+      // final int response = this.promptForIndex(message, list);
+   // 
+      // return list.get(response);
+      
+      throw new UnsupportedOperationException();
    
    }
    
