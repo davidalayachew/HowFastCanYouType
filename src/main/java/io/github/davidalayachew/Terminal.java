@@ -84,7 +84,7 @@ public final class Terminal extends InteractMode
    public <T> Set<T> pickMultiple(final String message, final Set<T> options)
    {
    
-      final List<T> list = list.copyOf(options);
+      final List<T> list = new ArrayList<>(options);
    
    //now, remove one, then perform on the new list
    
