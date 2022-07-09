@@ -86,6 +86,8 @@ public final class Terminal extends InteractMode
    
       final List<T> list = new ArrayList<>(options);
    
+      this.printSingle("Please select all options that apply.");
+   
    //now, remove one, then perform on the new list
    
    
