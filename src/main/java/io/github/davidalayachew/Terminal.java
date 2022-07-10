@@ -88,6 +88,8 @@ public final class Terminal extends InteractMode
    
       this.printSingle("Please select all options that apply.");
    
+      this.printSingle(this.stringMultipleNumbered(list));
+      
    //now, remove one, then perform on the new list
    
    
