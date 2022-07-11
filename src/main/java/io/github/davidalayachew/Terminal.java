@@ -84,12 +84,16 @@ public final class Terminal extends InteractMode
    public <T> Set<T> pickMultiple(final String message, final Set<T> options)
    {
    
-      final List<T> list = new ArrayList<>(options);
-   
-      this.printSingle("Please select all options that apply.");
-   
-      this.printSingle(this.stringMultipleNumbered(list));
+      do
+      {
       
+         final List<T> list = new ArrayList<>(options);
+      
+         this.printSingle("Please select all options that apply.");
+      
+         this.printSingle(this.stringMultipleNumbered(list));
+      
+      } while (askYesNo("Would you like to pick another option?"));
    //now, remove one, then perform on the new list
    
    
