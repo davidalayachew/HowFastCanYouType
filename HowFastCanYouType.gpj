@@ -1,10 +1,11 @@
-!1813;s
+!1979;s
 J
 SAU0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012GCC_COLORS=\012-Run\012ADD_EXE_PATH==Y\012
 SCU0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012GCC_COLORS=\012-Run\012ADD_EXE_PATH==Y\012
 S+U0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012GCC_COLORS=\012-Run\012ADD_EXE_PATH==Y\012
 SJc1-Xdiags:verbose -Xdoclint:all -Xdoclint/package:-io.github.davidalayachew.data -Xlint:all,-serial --enable-preview -source 17
-SJU0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012CLASSPATH=+%;%<EXTENSION_CLASSPATHS>\012CLASSPATH+=%<JGRASP_CLASSPATHS>%;\012CLASSPATH+=.%;\012CLASSPATH+=%<TARGET_CLASSPATHS>%;\012Compile +Document\012CLASSPATH+=%<SRC_CLASSPATHS>%;\012All\012PATH+=%<JAVA_BIN_DIR>%;\012PATH+=%<JGRASP_PATHS>%;\012Debug +Debug_Applet\012CLASSPATH=+%;%<INJECTION_CLASSPATHS>\012Compile\012NOT_FOUND_MESSAGE==Make sure you have the full JDK, not just the JRE, installed.\\nThe JDK is available from https://www.oracle.com/technetwork/java/index.html.\012Run_Applet +Debug_Applet\012ADD_APPLETVIEWER_CLASSPATH==Y\012Document\012CLASSPATH=+%;%<TOOL_CLASSPATHS>\012
+SJU0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012CLASSPATH=+%;%<EXTENSION_CLASSPATHS>\012CLASSPATH+=%<JGRASP_CLASSPATHS>%;\012CLASSPATH+=.%;\012CLASSPATH+=%<TARGET_CLASSPATHS>%;\012Compile +Document\012CLASSPATH+=%<SRC_CLASSPATHS>%;\012All\012PATH+=%<JAVA_BIN_DIR>%;\012PATH+=%<JGRASP_PATHS>%;\012Debug\012CLASSPATH=+%;%<INJECTION_CLASSPATHS>\012Compile\012NOT_FOUND_MESSAGE==Make sure you have the full Java SE, not just the JRE, installed.\\nJava is available from https://www.oracle.com/java/technologies .\012Document\012CLASSPATH=+%;%<TOOL_CLASSPATHS>\012
+SKU0CLASSPATH=+%;%<EXTENSION_CLASSPATHS>\012CLASSPATH+=%<JGRASP_CLASSPATHS>%;\012CLASSPATH+=.%;\012CLASSPATH+=%<TARGET_CLASSPATHS>%;\012Compile +Document\012CLASSPATH+=%<SRC_CLASSPATHS>%;\012All\012PATH+=%<JAVA_BIN_DIR>%;\012PATH+=%<JGRASP_PATHS>%;
 SXU0
 SOU0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012PATH+=%<JGRASP_PATHS>%;\012PATH=+%;%<JGRASP_C_PATHS>\012CYGWIN=nodosfilewarning\012GCC_COLORS=\012-Run\012ADD_EXE_PATH==Y\012
 SyU0JGRASP_MAIN_BOUNDS=%<CONTROL_SHELL_BOUNDS>\012PATH+=%<PYTHON_PATH>%;\012PATH+=%<JGRASP_PATHS>%;\012CYGWIN=nodosfilewarning\012GCC_COLORS=
@@ -23,22 +24,22 @@ s#r0ignore/bin
 s#t0ignore/help
 s#w0ignore/canvases
 !456;g
+%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sTerminal.java
+%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sInteractMode.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sEnumMethods.java
-%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sdata%sWord.java
+%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sMain.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sdata%sGameOption.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sGUI.java
-%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sInteractMode.java
-%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sMain.java
-%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sTerminal.java
+%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sdata%sWord.java
 !456;f
+%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sTerminal.java
+%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sInteractMode.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sEnumMethods.java
-%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sdata%sWord.java
+%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sMain.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sdata%sGameOption.java
 %\011src%smain%sjava%sio%sgithub%sdavidalayachew%sGUI.java
-%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sInteractMode.java
-%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sMain.java
-%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sTerminal.java
+%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sdata%sWord.java
 !70;l
 %\011src%stest%sjava%sio%sgithub%sdavidalayachew%sdata%sWordTest.java
 !329;t
-jgrJUnit0xr	%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sdata%sWord.java	1651992911617:P%\011%u%u%u%u%u%utest%sjava%sio%sgithub%sdavidalayachew%sdata%sWordTest.java	%\011src%stest%sjava%sio%sgithub%sdavidalayachew%sdata%sWordTest.java	1651992911617:P%\011%u%u%u%u%u%umain%sjava%sio%sgithub%sdavidalayachew%sdata%sWord.java	
+jgrJUnit0xr	%\011src%stest%sjava%sio%sgithub%sdavidalayachew%sdata%sWordTest.java	1651992911617:P%\011%u%u%u%u%u%umain%sjava%sio%sgithub%sdavidalayachew%sdata%sWord.java	%\011src%smain%sjava%sio%sgithub%sdavidalayachew%sdata%sWord.java	1651992911617:P%\011%u%u%u%u%u%utest%sjava%sio%sgithub%sdavidalayachew%sdata%sWordTest.java	
