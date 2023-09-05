@@ -95,4 +95,20 @@ public final class GUI extends InteractMode
    
    }
 
+   @Override
+   public boolean askYesNo(final String message)
+   {
+   
+      return
+         switch (JOptionPane.showConfirmDialog(null, message))
+         {
+            
+            case  JOptionPane.YES_OPTION  -> true;
+            case  JOptionPane.NO_OPTION   -> false;
+            default                       -> throw new IllegalArgumentException("User exited");
+            
+         };
+      
+   }
+
 }

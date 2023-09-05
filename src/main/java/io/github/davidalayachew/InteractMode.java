@@ -81,26 +81,26 @@ public abstract sealed class InteractMode permits Terminal, GUI
       return this.stringMultiple(List.of(messages));
    
    }
-   
+
    /**
-    * 
+    *
     * Method that returns the given collection in a user-friendly String.
-    * 
+    *
     * @param   collection  The collection to be printed.
     * @param   <T>         The type parameter of the collection to be printed.
     * @return              The user-friendly String.
-    * 
+    *
     */
    public abstract <T> String stringMultiple(final Collection<T> collection);
 
    /**
-    * 
+    *
     * Method that returns the given list as a user-friendly string, with each entry given a unique number.
-    * 
+    *
     * @param   list        The list to be printed.
     * @param   <T>         The type parameter of the list to be printed.
     * @return              The list as a user friendly string.
-    * 
+    *
     */
    public abstract <T> String stringMultipleNumbered(final List<T> list);
 
@@ -262,6 +262,54 @@ public abstract sealed class InteractMode permits Terminal, GUI
       }
    
       return INTEGER_PATTERN.matcher(potential).matches();
+   
+   }
+
+   public boolean askYesNo(final String message)
+   {
+   
+      enum Response
+      {
+      
+         YES,
+         NO,
+         INVALID_RESPONSE,
+         ;
+      
+      }
+   
+      final java.util.function.Function<String, Response> PARSE_RESPONSE =
+         string ->
+            switch (string)
+            {
+            
+               case  null  -> Response.INVALID_RESPONSE;
+               case  "Y",
+                     "y",
+                     "yes",
+                     "Yes",
+                     "YES" -> Response.YES;
+               case  "N",
+                     "n",
+                     "no",
+                     "No",
+                     "NO"  -> Response.NO;
+               default     -> Response.INVALID_RESPONSE;
+            
+            };
+   
+      Response response;
+   
+      do
+      {
+      
+         response = PARSE_RESPONSE.apply(this.prompt(message));
+      
+      }
+      
+      while (response == Response.INVALID_RESPONSE);
+   
+      return response == Response.YES;
    
    }
 
