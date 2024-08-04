@@ -3,6 +3,6 @@ module HowFastCanYouTypeModule
 {
 
    requires java.base;
-   // requires java.desktop;
+   requires java.desktop;
 
 }
